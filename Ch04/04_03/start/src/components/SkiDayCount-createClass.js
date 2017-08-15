@@ -1,10 +1,22 @@
-import { createClass } from 'react'
+import { createClass, PropTypes } from 'react'
 import '../stylesheets/ui.scss'
 import Terrain from 'react-icons/lib/md/terrain'
 import SnowFlake from 'react-icons/lib/ti/weather-snow'
 import Calendar from 'react-icons/lib/fa/calendar'
 
 export const SkiDayCount = createClass({
+  propTypes: {
+    total: PropTypes.number.isRequired,
+    powder: PropTypes.number,
+    backcountry: PropTypes.number
+  },
+  getDefaultProps(){
+    return {
+      powder: 50,
+      backcountry: 15,
+      goal: 100
+    }
+  },
   percentToDecimal(decimal) {
     return ((decimal * 100) + '%')
   },
@@ -32,7 +44,7 @@ export const SkiDayCount = createClass({
         <div>
           <span>
             {this.calcGoalProgress(
-              this.props.total, 
+              this.props.total,
               this.props.goal
             )}
           </span>

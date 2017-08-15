@@ -7,7 +7,7 @@ window.React = React
 
 
 render(
-	<SkiDayCount />, 
+	<SkiDayCount/>,
 	document.getElementById('react-container')
 )
 
