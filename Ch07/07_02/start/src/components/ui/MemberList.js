@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import fetch from 'isomorphic-fetch'
+import Member from './Member'
 
 class MemberList extends Component {
     constructor(props) {
@@ -29,9 +30,13 @@ class MemberList extends Component {
         return (
             <div className="member-list">
             	<h1>Society Members</h1>
+              {this.state.members.map((member, i) =>
+        				<Member key={i}
+        						   {...member}/>
+        				)}
             </div>
-        )    
-   }     
+        )
+   }
 }
 
 export default MemberList
